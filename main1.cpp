@@ -18,3 +18,18 @@ void display()
 	}  
 	
 }
+//Take input from player2 to insert 'X' in the specifield field by player2
+void getInput()
+{
+	cout<<"It is your chance, enter the field number (from 1 to 9)\n";
+	cin>>field;
+	field--;
+    if(matrix[a/3][a%3] != 'X' && matrix[a/3][a%3] != 'O' )
+    {matrix[a/3][a%3] = 'X'}
+    else
+	{
+	 cout<< "ILLEGAL MOVE"<<endl;
+	 cout<<"Now chance will be given to the bot"<<endl;
+	}
+	
+}
