@@ -1,5 +1,6 @@
 #include<iostream>
-#inclde<time.h>
+#include<stdlib.h>
+#include<time.h>
 using namespace std;
 
 char matrix[3][3]={'1','2','3','4','5','6','7','8','9'};
@@ -21,35 +22,130 @@ void display()
 //Take input from player2 to insert 'X' in the specifield field by player2
 void getInput()
 {
+	int a;
+	char player='X';
 	cout<<"It is your chance, enter the field number (from 1 to 9)\n";
-	cin>>field;
-	field--;
-    if(matrix[a/3][a%3] != 'X' && matrix[a/3][a%3] != 'O' )
+    cin >> a;
+ 
+    if (a == 1)
     {
-	 matrix[a/3][a%3] = 'X';
-	 display();
-	}
-    else
-	{
-	 cout<< "ILLEGAL MOVE"<<endl;
-	 cout<<"Now chance will be given to the bot"<<endl;
-	}
+        if (matrix[0][0] == '1')
+            matrix[0][0] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
+    else if (a == 2)
+    {
+        if (matrix[0][1] == '2')
+            matrix[0][1] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
+    else if (a == 3)
+    {
+        if (matrix[0][2] == '3')
+            matrix[0][2] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
+    else if (a == 4)
+    {
+        if (matrix[1][0] == '4')
+            matrix[1][0] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
+    else if (a == 5)
+    {
+        if (matrix[1][1] == '5')
+            matrix[1][1] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
+    else if (a == 6)
+    {
+        if (matrix[1][2] == '6')
+            matrix[1][2] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
+    else if (a == 7)
+    {
+        if (matrix[2][0] == '7')
+            matrix[2][0] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
+    else if (a == 8)
+    {
+        if (matrix[2][1] == '8')
+            matrix[2][1] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
+    else if (a == 9)
+    {
+        if (matrix[2][2] == '9')
+            matrix[2][2] = player;
+        else
+        {
+            cout<< "ILLEGAL MOVE"<<endl;
+	        cout<<"Now chance will be given to the bot"<<endl;
+        }
+    }
 
 }
 void inputBot()
 {
+	int field;
 	cout<<"It's bot's chance"<<endl;
 	srand(time(0));
 	field=rand()%9;
-	if(matrix[a/3][a%3] != 'X' && matrix[a/3][a%3] != 'O' )
+	if(matrix[field/3][field%3] != 'X' && matrix[field/3][field%3] != 'O' )
     {
-	 matrix[a/3][a%3] = 'O';
+	 matrix[field/3][field%3] = 'O';
 	 display();
+	 cout<<"Bot chose "<<field+1<<endl;
     }
     else
 	{
 	 cout<< "ILLEGAL MOVE"<<endl;
 	 cout<<"Now chance will be given to the player2"<<endl;
 	}
+}
+
+int main()
+{
+   display();
+   while(1)
+   {
+   	getInput();
+   	inputBot();
+   }
+   return 0;
 }
 
