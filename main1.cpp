@@ -185,18 +185,28 @@ char Winner()
 
 int main()
 {
+   int n=0;
    while(1)
    {
    	getInput();
    	if(Winner() =='X')
    	{
+   		system("cls");
    		cout<<"yipee!!!! YOU WON"<<endl;
+   		display();
    		break;
+	}
+	else if (Winner() == 'l' && n == 9)
+	{
+		system("cls");
+		cout<<"Oops!!!! IT IS A DRAW"<<endl;
 	}
    	inputBot();
    	if(Winner() =='O')
    	{
+   		system("cls");
    		cout<<"sorry!!!! YOU LOST"<<endl;
+   		display();
    		break;
 	}
    }
