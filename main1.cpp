@@ -200,6 +200,7 @@ int main()
 	{
 		system("cls");
 		cout<<"Oops!!!! IT IS A DRAW"<<endl;
+		break;
 	}
    	inputBot();
    	if(Winner() =='O')
@@ -208,6 +209,12 @@ int main()
    		cout<<"sorry!!!! YOU LOST"<<endl;
    		display();
    		break;
+	}
+	else if (Winner() == 'l' && n == 9)
+	{
+		system("cls");
+		cout<<"Oops!!!! IT IS A DRAW"<<endl;
+		break;
 	}
    }
    return 0;
