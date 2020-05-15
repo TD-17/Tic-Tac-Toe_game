@@ -9,6 +9,7 @@ char field;
 //Print the matrix
 void display()
 {
+	
 	for(int i=0;i<3;i++)
 	{
 		for(int j=0;j<3;j++)
@@ -22,6 +23,8 @@ void display()
 //Take input from player2 to insert 'X' in the specifield field by player2
 void getInput()
 {
+	
+	display();
 	int a;
 	char player='X';
 	cout<<"It is your chance, enter the field number (from 1 to 9)\n";
@@ -117,34 +120,85 @@ void getInput()
 	        cout<<"Now chance will be given to the bot"<<endl;
         }
     }
-
+   
 }
 void inputBot()
 {
 	int field;
-	cout<<"It's bot's chance"<<endl;
 	srand(time(0));
 	field=rand()%9;
+	system("cls");
 	if(matrix[field/3][field%3] != 'X' && matrix[field/3][field%3] != 'O' )
     {
 	 matrix[field/3][field%3] = 'O';
-	 display();
 	 cout<<"Bot chose "<<field+1<<endl;
     }
     else
 	{
-	 cout<< "ILLEGAL MOVE"<<endl;
-	 cout<<"Now chance will be given to the player2"<<endl;
+	 cout<< "ILLEGAL MOVE BY BOT"<<endl;
+	 cout<<"Now chance will be given to you"<<endl;
 	}
+}
+char Winner()
+{
+    //first player
+    if (matrix[0][0] == 'X' && matrix[0][1] == 'X' && matrix[0][2] == 'X')
+        return 'X';
+    if (matrix[1][0] == 'X' && matrix[1][1] == 'X' && matrix[1][2] == 'X')
+        return 'X';
+    if (matrix[2][0] == 'X' && matrix[2][1] == 'X' && matrix[2][2] == 'X')
+        return 'X';
+ 
+    if (matrix[0][0] == 'X' && matrix[1][0] == 'X' && matrix[2][0] == 'X')
+        return 'X';
+    if (matrix[0][1] == 'X' && matrix[1][1] == 'X' && matrix[2][1] == 'X')
+        return 'X';
+    if (matrix[0][2] == 'X' && matrix[1][2] == 'X' && matrix[2][2] == 'X')
+        return 'X';
+ 
+    if (matrix[0][0] == 'X' && matrix[1][1] == 'X' && matrix[2][2] == 'X')
+        return 'X';
+    if (matrix[2][0] == 'X' && matrix[1][1] == 'X' && matrix[0][2] == 'X')
+        return 'X';
+ 
+    //second player
+    if (matrix[0][0] == 'O' && matrix[0][1] == 'O' && matrix[0][2] == 'O')
+        return 'O';
+    if (matrix[1][0] == 'O' && matrix[1][1] == 'O' && matrix[1][2] == 'O')
+        return 'O';
+    if (matrix[2][0] == 'O' && matrix[2][1] == 'O' && matrix[2][2] == 'O')
+        return 'O';
+ 
+    if (matrix[0][0] == 'O' && matrix[1][0] == 'O' && matrix[2][0] == 'O')
+        return 'O';
+    if (matrix[0][1] == 'O' && matrix[1][1] == 'O' && matrix[2][1] == 'O')
+        return 'O';
+    if (matrix[0][2] == 'O' && matrix[1][2] == 'O' && matrix[2][2] == 'O')
+        return 'O';
+ 
+    if (matrix[0][0] == 'O' && matrix[1][1] == 'O' && matrix[2][2] == 'O')
+        return 'O';
+    if (matrix[2][0] == 'O' && matrix[1][1] == 'O' && matrix[0][2] == 'O')
+        return 'O';
+    return 'l';
 }
 
 int main()
 {
-   display();
    while(1)
    {
    	getInput();
+   	if(Winner() =='X')
+   	{
+   		cout<<"yipee!!!! YOU WON"<<endl;
+   		break;
+	}
    	inputBot();
+   	if(Winner() =='O')
+   	{
+   		cout<<"sorry!!!! YOU LOST"<<endl;
+   		break;
+	}
    }
    return 0;
 }
